@@ -1,5 +1,12 @@
 {
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
-  "projects": {}
+  "projects": {
+    "d2": "packages/d2",
+    "parking-lot": "packages/parking-lot",
+    "parking-lot-e2e": "packages/parking-lot-e2e",
+    "react-playgournd": "packages/react-playgournd",
+    "react-playgournd-e2e": "packages/react-playgournd-e2e",
+    "remix-playground": "packages/remix-playground"
+  }
 }

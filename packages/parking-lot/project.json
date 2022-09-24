@@ -1,0 +1,83 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/parking-lot/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/packages/parking-lot",
+        "index": "packages/parking-lot/src/index.html",
+        "baseHref": "/",
+        "main": "packages/parking-lot/src/main.tsx",
+        "polyfills": "packages/parking-lot/src/polyfills.ts",
+        "tsConfig": "packages/parking-lot/tsconfig.app.json",
+        "assets": [
+          "packages/parking-lot/src/favicon.ico",
+          "packages/parking-lot/src/assets"
+        ],
+        "styles": ["packages/parking-lot/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "packages/parking-lot/src/environments/environment.ts",
+              "with": "packages/parking-lot/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "parking-lot:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "parking-lot:build:development"
+        },
+        "production": {
+          "buildTarget": "parking-lot:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/parking-lot/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/parking-lot"],
+      "options": {
+        "jestConfig": "packages/parking-lot/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

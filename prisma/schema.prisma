@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Weapon {
+  id Int @id @default(autoincrement())
+  name String
+
+  type          String
+  archetypeName String
+  archetypeDesc String
+
+  energy String
+
+  craftable Boolean?
+  sunset    Boolean?
+  exotic   Boolean?
+
+  ammo           String
+  fireRate       String
+  crit           String
+  body           String
+  critMultiplier String
+
+  blastRadius      String
+  range            String
+  stability        String
+  handling         String
+  reloadSpeed      String
+  aimAssist        String
+  recoilDirection  String
+  magSize          String
+  airborneEfficacy String
+  baseZoom         String?
+}

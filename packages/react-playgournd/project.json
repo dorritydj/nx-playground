@@ -1,0 +1,83 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/react-playgournd/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/packages/react-playgournd",
+        "index": "packages/react-playgournd/src/index.html",
+        "baseHref": "/",
+        "main": "packages/react-playgournd/src/main.tsx",
+        "polyfills": "packages/react-playgournd/src/polyfills.ts",
+        "tsConfig": "packages/react-playgournd/tsconfig.app.json",
+        "assets": [
+          "packages/react-playgournd/src/favicon.ico",
+          "packages/react-playgournd/src/assets"
+        ],
+        "styles": ["packages/react-playgournd/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "packages/react-playgournd/src/environments/environment.ts",
+              "with": "packages/react-playgournd/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "react-playgournd:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "react-playgournd:build:development"
+        },
+        "production": {
+          "buildTarget": "react-playgournd:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/react-playgournd/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/react-playgournd"],
+      "options": {
+        "jestConfig": "packages/react-playgournd/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["ui"]
+}

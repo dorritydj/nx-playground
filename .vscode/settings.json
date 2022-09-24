@@ -1,0 +1,9 @@
+{
+  "editor.stickyScroll.enabled": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript", // Enable .ts
+    "typescriptreact" // Enable .tsx
+  ]
+}
