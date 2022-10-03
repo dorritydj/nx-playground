@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "d2": "packages/d2",
+    "data-structures": "packages/data-structures",
     "parking-lot": "packages/parking-lot",
     "parking-lot-e2e": "packages/parking-lot-e2e",
     "react-playgournd": "packages/react-playgournd",
