@@ -1,1 +1,1 @@
-import './app/find-longest-substring';
+import './app/graph';
