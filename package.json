@@ -10,6 +10,7 @@
   },
   "private": true,
   "devDependencies": {
+    "@faker-js/faker": "^7.5.0",
     "@nrwl/cli": "14.5.7",
     "@nrwl/cypress": "14.7.5",
     "@nrwl/eslint-plugin-nx": "^14.7.5",
@@ -28,6 +29,7 @@
     "@types/jest": "28.1.1",
     "@types/node": "16.11.7",
     "@types/react": "18.0.18",
+    "@types/react-calendar": "^3.5.3",
     "@types/react-dom": "18.0.6",
     "@types/react-router-dom": "5.3.3",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
@@ -67,6 +69,7 @@
     "bcryptjs": "^2.4.3",
     "core-js": "^3.6.5",
     "react": "^18.2.0",
+    "react-calendar": "^3.9.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "6.3.0",
     "regenerator-runtime": "0.13.7",

@@ -1,0 +1,85 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/fitness-scheduler-poc/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/packages/fitness-scheduler-poc",
+        "index": "packages/fitness-scheduler-poc/src/index.html",
+        "baseHref": "/",
+        "main": "packages/fitness-scheduler-poc/src/main.tsx",
+        "polyfills": "packages/fitness-scheduler-poc/src/polyfills.ts",
+        "tsConfig": "packages/fitness-scheduler-poc/tsconfig.app.json",
+        "assets": [
+          "packages/fitness-scheduler-poc/src/favicon.ico",
+          "packages/fitness-scheduler-poc/src/assets"
+        ],
+        "styles": ["packages/fitness-scheduler-poc/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "packages/fitness-scheduler-poc/src/environments/environment.ts",
+              "with": "packages/fitness-scheduler-poc/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "fitness-scheduler-poc:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "fitness-scheduler-poc:build:development"
+        },
+        "production": {
+          "buildTarget": "fitness-scheduler-poc:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/fitness-scheduler-poc/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/fitness-scheduler-poc"],
+      "options": {
+        "jestConfig": "packages/fitness-scheduler-poc/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["ui"]
+}

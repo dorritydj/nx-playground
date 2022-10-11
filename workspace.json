@@ -4,6 +4,8 @@
   "projects": {
     "d2": "packages/d2",
     "data-structures": "packages/data-structures",
+    "fitness-scheduler-poc": "packages/fitness-scheduler-poc",
+    "fitness-scheduler-poc-e2e": "packages/fitness-scheduler-poc-e2e",
     "parking-lot": "packages/parking-lot",
     "parking-lot-e2e": "packages/parking-lot-e2e",
     "react-playgournd": "packages/react-playgournd",
