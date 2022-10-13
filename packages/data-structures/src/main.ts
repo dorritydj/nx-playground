@@ -1,1 +1,1 @@
-import './app/graph';
+import './app/grid-challenge';

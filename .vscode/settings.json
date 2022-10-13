@@ -6,5 +6,5 @@
     "typescript", // Enable .ts
     "typescriptreact" // Enable .tsx
   ],
-  "cSpell.words": ["appt", "Appts"]
+  "cSpell.words": ["appt", "Appts", "Nums"]
 }
